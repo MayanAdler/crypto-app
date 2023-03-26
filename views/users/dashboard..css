@@ -1,0 +1,9 @@
+.input-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.input{
+    width: 100px;
+    
+}
