@@ -4,11 +4,10 @@
         "secret": ""
     },
     "mysql":{
-        "host": "",
-        "port": "",
-        "db": "",
-        "username": "",
-        "password": ""
+        "host": "localhost",
+        "user":  "username",
+        "password": "password",
+        "database": "mydb"
     },
     "mongo":{
         "port": "",
