@@ -5,12 +5,13 @@
     },
     "mysql":{
         "host": "localhost",
-        "user":  "username",
+        "user":  "root",
         "password": "password",
         "database": "mydb"
     },
     "mongo":{
-        "port": "",
-        "db": ""
+        "host": "localhost",
+        "port": 27017,
+        "db": "mymongo"
     }
 }
