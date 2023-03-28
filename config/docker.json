@@ -1,12 +1,13 @@
 {
     "mysql": {
-        "host": "localhost",
+        "host": "mysql",
         "user": "username",
         "password": "password",
-        "database": "mydb"
+        "database": "mydb",
+        "port": 3306
     },
     "mongo": {
-        "host": "localhost",
+        "host": "mongo",
         "port": 27017,
         "db": "mymongo"
     },
@@ -19,8 +20,8 @@
     },
     "github": {
         "client": {
-            "id": "3434e85501636950199a",
-            "secret": "fd3754121d6327f516a38caf7722996efe1bc5c5"
+            "id": "0fa29a30f7ca6b0be1c8",
+            "secret": "308bb754abb112a6af9253580b3178ad2011695d"
         }
     }
 }

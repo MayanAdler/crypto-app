@@ -1,5 +1,5 @@
 {
-    "app": {
-        "secret": "MY_SECRET"
+    "mysql": {
+        "passwsord1": "DB_PASSWORD"
     }
 }

@@ -20,23 +20,11 @@ services:
       test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
       timeout: 20s
       retries: 10
-  
-  mongo:
-    image: mongo:latest
-    environment:
-      MONGO_INITDB_DATABASE: mymongo
-    ports:
-    - 27017:27017
-    expose:
-      - 27017
-  
   app:
     depends_on:
       mysql:
         condition: service_healthy
-    build:
-      context: .
-      dockerfile: ./Dockerfile.app
+    build: ./
     restart: unless-stopped
     environment:
       - DB_HOST=mysql
@@ -44,30 +32,6 @@ services:
       - DB_PASSWORD=password
       - DB_NAME=mydb
       - DB_PORT=3306
-      - MYSQL_PASSWORD=password
-      - NODE_ENV=docker
-    stdin_open: true
-    tty: true
-    ports:
-      - 3000:3000
-    expose:
-      - 3000
-  worker:
-    depends_on:
-      app:
-        condition: service_started
-    build:
-      context: .
-      dockerfile: ./Dockerfile.worker
-    restart: unless-stopped
-    environment:
-      - DB_HOST=mysql
-      - DB_USER=username
-      - DB_PASSWORD=password
-      - DB_NAME=mydb
-      - DB_PORT=3306
-      - MYSQL_PASSWORD=password
-      - NODE_ENV=docker
     stdin_open: true
     tty: true
 

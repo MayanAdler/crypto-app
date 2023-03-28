@@ -1,3 +1,5 @@
+const SymbolValue = require('../../models/mongo/SymbolValue');
+
 const addSymbol = async (req, res, next) => {
     try {
         await req.db.execute(`
@@ -23,9 +25,15 @@ const dashboard = async (req, res, next) => {
             select * from users_symbols where user_id = ?
         `,[
             2,
-        ])
+        ]);
+
+        const promises = [];
+        userSymbols.forEach((userSymbol) => promises.push(SymbolValue.findOne({symbol: userSymbol.symbol}).sort({createdAt : -1}).limit(1)))
+        const symbolValues = await Promise.all(promises);
+
         res.render('users/dashboard', {
             userSymbols,
+            symbolValues,
         })
     } catch (err) {
         next(err);
